@@ -1,0 +1,53 @@
+{
+  "name": "dsp-factoriolab-overlay",
+  "version": "1.0.0",
+  "description": "Always-on-top overlay for Dyson Sphere Program using Factoriolab",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build:dir": "electron-builder --win --x64 --dir"
+  },
+  "keywords": ["electron", "dsp", "dyson-sphere-program", "overlay", "factoriolab"],
+  "author": "Tyler",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "build": {
+    "appId": "com.dsp.factoriolab-overlay",
+    "productName": "DSP Factoriolab Overlay",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "tray-icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "main.js",
+      "config.json",
+      "tray-icon.png",
+      "tray-icon.ico",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "config.json",
+        "to": "config.json"
+      }
+    ]
+  }
+}
