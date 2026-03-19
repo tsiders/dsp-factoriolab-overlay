@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win --x64",
-    "build:dir": "electron-builder --win --x64 --dir"
+    "build": "set CSC_IDENTITY_AUTO_DISCOVERY=false && set CSC_LINK= && electron-builder --win --x64",
+    "build:dir": "set CSC_IDENTITY_AUTO_DISCOVERY=false && set CSC_LINK= && electron-builder --win --x64 --dir"
   },
   "keywords": ["electron", "dsp", "dyson-sphere-program", "overlay", "factoriolab"],
   "author": "Tyler",
@@ -28,7 +28,9 @@
           "arch": ["x64"]
         }
       ],
-      "icon": "tray-icon.ico"
+      "icon": "tray-icon.ico",
+      "sign": null,
+      "signingHashAlgorithms": null
     },
     "nsis": {
       "oneClick": false,
